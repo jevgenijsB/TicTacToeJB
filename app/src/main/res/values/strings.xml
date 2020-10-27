@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">TicTacToeJB</string>
+    <string name="app_name">Tic Tac Toe JB</string>
     <string name="action_new_game">New Game</string>
     <string name="action_settings">Settings</string>
     <string name="action_exit">Exit</string>
+    <string name="notification">Player X: Turn</string>
+
 </resources>
