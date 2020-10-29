@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView text;
     private TextView[][] grid_TextView = new TextView[3][3];
     private String[][] grid_String = new String[3][3];
-    private int i,a;
+    private int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,39 +44,102 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.row1Col1:
-                grid_String[0][0] = "X";
-                  display_Grid();
+                if(count % 2 == 0) {
+                    grid_String[0][0] = "X";
+                    display_Action("Player O: Turn");
+                }else{
+                    grid_String[0][0] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
+                display_Grid();
                   break;
             case R.id.row1Col2:
-                grid_String[0][1] = "X";
+                if(count % 2 == 0) {
+                    grid_String[0][1] = "X";
+                    display_Action("Player O: Turn");
+                }else{
+                    grid_String[0][1] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row1Col3:
-                grid_String[0][2] = "X";
+                if(count % 2 == 0) {
+                    grid_String[0][2] = "X";
+                    display_Action("Player O: Turn");
+                }else{
+                    grid_String[0][2] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row2Col1:
-                grid_String[1][0] = "X";
+                if(count % 2 == 0) {
+                    grid_String[1][0] = "X";
+                    display_Action("Player O: Turn");
+                }else {
+                    grid_String[1][0] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row2Col2:
-                grid_String[1][1] = "X";
+                if(count % 2 == 0) {
+                    grid_String[1][1] = "X";
+                    display_Action("Player O: Turn");
+                }else {
+                    grid_String[1][1] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row2Col3:
-                grid_String[1][2] = "X";
+                if(count % 2 == 0) {
+                    grid_String[1][2] = "X";
+                    display_Action("Player O: Turn");
+                }else {
+                    grid_String[1][2] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row3Col1:
-                grid_String[2][0] = "X";
+                if(count % 2 == 0) {
+                    grid_String[2][0] = "X";
+                    display_Action("Player O: Turn");
+                }else {
+                    grid_String[2][0] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row3Col2:
-                grid_String[2][1] = "X";
+                if(count % 2 == 0) {
+                    grid_String[2][1] = "X";
+                    display_Action("Player O: Turn");
+                }else {
+                    grid_String[2][1] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
             case R.id.row3Col3:
-                grid_String[2][2] = "X";
+                if(count % 2 == 0) {
+                    grid_String[2][2] = "X";
+                    display_Action("Player O: Turn");
+                }else {
+                    grid_String[2][2] = "O";
+                    display_Action("Player X: Turn");
+                }
+                count++;
                 display_Grid();
                 break;
         }
@@ -108,13 +171,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void display_Grid(){
-        for (int i=0;i<3;i++){
-            for(int a=0;a<3;a++){
-                 grid_TextView[i][a].setText(grid_String[i][a]);
+        for (int i = 0; i < 3; i++) {
+            for (int a = 0; a < 3; a++) {
+                grid_TextView[i][a].setText(grid_String[i][a]);
+                }
+            }
+    }
+
+    public void display_Action(String action ){
+        text.setText(action);
+    }
+
+    public void check_Grid(){
+        for (int i = 0; i < 3; i++) {
+            for (int a = 0; a < 3; a++) {
+              //  grid_String[i][a];
             }
         }
     }
-
-
 
 }
