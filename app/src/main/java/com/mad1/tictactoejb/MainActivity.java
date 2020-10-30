@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+               // win();
                   break;
             case R.id.row1Col2:
                 if(count % 2 == 0) {
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+                //win();
                 break;
             case R.id.row1Col3:
                 if(count % 2 == 0) {
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+                //win();
                 break;
             case R.id.row2Col1:
                 if(count % 2 == 0) {
@@ -86,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+               // win();
                 break;
             case R.id.row2Col2:
                 if(count % 2 == 0) {
@@ -108,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+               // win();
                 break;
             case R.id.row3Col1:
                 if(count % 2 == 0) {
@@ -119,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+                //win();
                 break;
             case R.id.row3Col2:
                 if(count % 2 == 0) {
@@ -130,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+              //  win();
                 break;
             case R.id.row3Col3:
                 if(count % 2 == 0) {
@@ -141,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 count++;
                 display_Grid();
+               // win();
                 break;
         }
     }
@@ -176,16 +184,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 grid_TextView[i][a].setText(grid_String[i][a]);
                 }
             }
+        win();
     }
 
     public void display_Action(String action ){
         text.setText(action);
     }
 
-    public void check_Grid(){
-        for (int i = 0; i < 3; i++) {
-            for (int a = 0; a < 3; a++) {
-              //  grid_String[i][a];
+    public void win(){
+        int row = 0;
+        int col = 0;
+        boolean horizont, vertical, cross_right, cross_left;
+        horizont = vertical = cross_right = cross_left = true;
+        boolean stop = false;
+        while (!stop) {
+            if (horizont) {
+                if (col == 3){
+                    stop = true;
+                    text.setText("Win");
+                }else if(row == 3){
+                    horizont = false;
+                    row = 0;
+                }else if (grid_String[row][col] == "X") {
+                    col++;
+                }else{
+                    row++;
+                    col = 0;
+                }
+            }else if(vertical){
+                if (row == 3){
+                    stop = true;
+                    text.setText("Win");
+                }else if(col == 3){
+                    vertical = false;
+                } else if (grid_String[row][col] == "X") {
+                    row++;
+                }else{
+                    col++;
+                    row = 0;
+                }
+            }else if(cross_right){
+                stop = true;
+            }else if(cross_left){
+                stop = true;
+                }else{
+                stop = true;
             }
         }
     }
