@@ -196,15 +196,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int col = 0;
         boolean horizont, vertical, cross_right, cross_left;
         horizont = vertical = cross_right = cross_left = true;
-        boolean stop = false;
-        while (!stop) {
+        boolean stop = true;
+        while (stop) {
             if (horizont) {
                 if (col == 3){
-                    stop = true;
+                    stop = false;
                     text.setText("Win");
                 }else if(row == 3){
                     horizont = false;
                     row = 0;
+                    col = 0;
                 }else if (grid_String[row][col] == "X") {
                     col++;
                 }else{
@@ -213,10 +214,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }else if(vertical){
                 if (row == 3){
-                    stop = true;
+                    stop = false;
                     text.setText("Win");
                 }else if(col == 3){
                     vertical = false;
+                    row = 0;
+                    col = 0;
                 } else if (grid_String[row][col] == "X") {
                     row++;
                 }else{
@@ -224,11 +227,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     row = 0;
                 }
             }else if(cross_right){
-                stop = true;
-            }else if(cross_left){
-                stop = true;
+                if (row == 3 && col == 3){
+                    stop = false;
+                    text.setText("Win");
+                } else if (grid_String[row][col] == "X") {
+                    row++;
+                    col++;
                 }else{
-                stop = true;
+                    cross_right = false;
+                    col = 2;
+                    row = 2;
+                }
+            }else if(cross_left){
+                if (row+1 == 0 && col+1 == 0){
+                    stop = false;
+                    text.setText("Win");
+                } else if (grid_String[row][col] == "X") {
+                    row--;
+                    col--;
+                }else{
+                    cross_left = false;
+                }
+            }else{
+                stop = false;
             }
         }
     }
